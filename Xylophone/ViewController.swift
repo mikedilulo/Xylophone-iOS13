@@ -28,7 +28,9 @@ class ViewController: UIViewController {
         // Using Main bundle to locate the sound file resource
         // url is looking for resources i.e. C.wav
         let url = Bundle.main.url(forResource: "C", withExtension: "wav")
+        // Plays the contents of the url constant
         player = try! AVAudioPlayer(contentsOf: url!)
+        // Plays it
         player.play()
                 
     }

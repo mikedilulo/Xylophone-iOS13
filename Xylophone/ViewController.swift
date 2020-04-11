@@ -20,14 +20,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func keyPressed(_ sender: UIButton) {
-        playSound()
+        /* Sender.courrent title has a data type that is an optional string. Optional comes from ?, count have a button that the title is nil. In that case we would be trying to pass a non existing value and crash the application */
+        playSound(soundName: sender.currentTitle!)
+        
     }
     
-    func playSound() {
+    func playSound(soundName: String) {
         // Bundle: Representation of Code and Resources, stored on a disk.
         // Using Main bundle to locate the sound file resource
-        // url is looking for resources i.e. C.wav
-        let url = Bundle.main.url(forResource: "C", withExtension: "wav")
+        let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
         // Plays the contents of the url constant
         player = try! AVAudioPlayer(contentsOf: url!)
         // Plays it
